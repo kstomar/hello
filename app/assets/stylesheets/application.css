@@ -13,3 +13,316 @@
  *= require_tree .
  *= require_self
  */
+body {
+    width: 100%;
+    float: left;
+    position: relative;
+    margin: 0;
+}
+.res {
+    width: 100%;
+    float: left;
+    position: relative;
+}
+.header {
+    width: 100%;
+    float: left;
+    position: relative;
+    padding: 50px 0;
+
+}
+.container{
+    width: 1170px;
+   margin: 0 auto;
+}
+.logo-sec {
+    width: 100%;
+    float: left;
+    position: relative;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+a.res-logo {
+    color: #000;
+    text-decoration: none;
+    font-size: 45px;
+}
+a.logo-img {
+    width: 50px;
+    position: absolute;
+    right: 0;
+    top:-50px;
+}
+a.logo-img img{
+    width: 100%;
+}
+.header-mid {
+    width: 100%;
+    float: left;
+    position: relative;
+}
+
+.address-sec {
+    width: auto;
+    float: left;
+    position: relative;
+    overflow: hidden;
+    padding-right: 50px;
+}
+.address-sec p {
+    margin: 0;
+    padding: 2px 0;
+    font-size: 14px;
+}
+.center-head {
+    width: auto;
+    float: left;
+    position: relative;
+}
+.center-head h2 {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+.center-head h2 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 25px;
+}
+.center-head h2 {
+    font-size: 30px;
+    font-weight: 900;
+    margin-top: 28px;
+}
+.header-botm {
+    width: 100%;
+    float: left;
+    position: relative;
+    border-bottom: 2px solid rgb(38,57,143);
+    padding:10px 0;
+}
+h2.botm-head {
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(38,57,143);
+    width: auto;
+    float: left;
+    margin-top: 55px;
+}
+.botm-logo {
+    width: 200px;
+    float: right;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: -4px;
+}
+.botm-logo img {
+    width: 100%;
+}
+
+.header-botm ul {
+    float: left;
+    width: 25%;
+    margin: 0;
+    padding: 10px 0;
+}
+.header-botm ul li {
+    list-style: none;
+}
+.header-botm ul li.top-head {
+    font-size: 14px;
+    color: #ccc;
+    font-style: italic;
+    padding-bottom: 5px;
+}
+.measured {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 0;
+}
+.good {
+   /* width: 100%;
+    float: left;*/
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #1ca729;
+}
+.good span,.marg span,.marginal span {
+    width: 18px;
+    position: relative;
+    float: left;
+    padding-right: 10px;
+}
+.marg,.marginal{
+    /*width: 100%;
+    float: left;*/
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #ff9900;
+
+}
+.good span img,.marg span img,.marginal span img {
+    width: 100%;
+}
+.home-t {
+    font-size: 16px;
+    font-weight: bold;
+    color: #777;
+    padding: 2px 0;
+}
+h2.matt {
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(38,57,143);
+    width: 100%;
+    float: left;
+    margin: 0 0 5px;
+}
+.left-sec {
+    width: 70%;
+    float: left;
+    position: relative;
+}
+
+.left-sec-head {
+    width: 100%;
+    float: left;
+    position: relative;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+}
+.left-sec-head h2 {
+    width: auto;
+    float: left;
+    margin: 0;
+    padding-right:20px
+}
+.left-sec-head .good {
+    width: auto;
+    padding-left: 20px;
+}
+.info-sec {
+    width: 100%;
+    float: left;
+    position: relative;
+    border-bottom: 2px solid rgb(38,57,143);
+    padding: 15px 0;
+}
+.info-sec h4 {
+    color: rgb(38,57,143);
+    width: 100%;
+    float: left;
+    margin: 0;
+    padding: 10px 0;
+    font-style: italic;
+}
+ul.potential {
+    width: 100%;
+    float: left;
+    position: relative;
+    margin: 0;
+    padding-left: 15px;
+}
+
+.right-sec {
+    width: 30%;
+    float: left;
+    position: relative;
+
+}
+.img-sec {
+    width: 100%;
+    float: left;
+    position: relative;
+    text-align: center;
+    padding-top: 20px;
+}
+.contant {
+    width: 100%;
+    position: relative;
+    margin-top: -20px;
+}
+.contant h6 {
+    margin: 0;
+    font-size: 20px;
+    color: rgb(38,57,143);
+}
+.contant p.name {
+    margin: 0;
+    font-weight: bold;
+    font-size: 16px;
+    padding-top: 9px;
+    color: #000;
+}
+.contant p {
+    font-size: 16px;
+    margin: 2px 0;
+    font-weight: bold;
+    color: rgb(38,57,143);
+}
+
+@media only screen and (min-width:576){
+    .container{
+        max-width: 520px;
+    }
+}
+
+@media only screen and (min-width:768px){
+    .container{
+        max-width: 720px;
+    }
+}
+
+
+@media only screen and (min-width:992px){
+    .container{
+        max-width: 960px;
+    }
+}
+
+@media only screen and (min-width:1200px){
+    .container{
+        max-width: 1140px;
+    }
+}
+
+
+
+/*css*/
+}
+table {
+    width: 100%;
+}
+.header-botm table {
+    width: 100%;
+    float: left;
+    position: relative;
+}
+.header-botm table tr th {
+    font-size: 14px;
+    color: #ccc;
+    font-style: italic;
+    padding-bottom: 5px;
+    text-align: left;
+}
+.left-sec-head .marginal span img {
+    width: 100%;
+}
+.left-sec-head .marginal span {
+    width: 18px;
+    position: relative;
+    float: left;
+    padding-right: 10px;
+}
+.left-sec-head .marginal {
+    margin-left: 20px;
+    color: #ff9900;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-top:3px;
+}

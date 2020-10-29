@@ -1,0 +1,156 @@
+<div class="res">
+  <div class="header">
+    <div class="container">
+      <div class="logo-sec">
+        <a href="#" class="res-logo">resideo</a>
+        <a href="#" class="logo-img"><%= image_tag (asset_url("logo1.png"))%></a>
+      </div>
+      <div class="header-mid">
+        <div class="address-sec">
+          <p>Monitor:34150</p>
+          <p>
+            Report:482066
+          </p>
+          <p>10/14/2010:30amCentralTime(US&Canada)</p>
+        </div>
+        <div class="center-head">
+          <h2>
+            The AirCycle in Your Home
+          </h2>
+        </div>
+      </div>
+      <div class="header-botm">
+        <h2 class="botm-head">What to care about</h2>
+        <div class="botm-logo">
+          <%= image_tag (asset_url("air-advice.jpg"))%>
+        </div>
+      </div>
+      <div class="header-botm">
+        <table>
+          <tr>
+            <th class="measured">What we measured</th>
+            <th>Control</th>
+            <th>Your Home</th>
+            <th>Acceptable Range</th>
+          </tr>
+
+          <% @advices.each do |advice|%>
+            <tr>
+              <td class="measured"><%= advice.measured %></td>
+              <td class="<%= advice.control%>"><span><%= image_tag (asset_url("#{advice.control}.png"))%></span> <%= advice.control %></td>
+              <td><%= advice.your_home %></td>
+              <td><%= advice.acceptable_range %></td>
+            </tr>
+          <% end %>
+        </table>
+        <h2 class="matt">Why it matters
+        </h2>
+      </div>
+      <% @advices.each do |advice|%>
+        <div class="info-sec">
+          <div class="left-sec">
+            <div class="left-sec-head">
+              <h2><%= advice.measured %></h2>
+              <div class="<%= advice.control%>">
+                <span>
+                  <%= image_tag (asset_url("#{advice.control}.png"))%>
+                </span>
+                <%= advice.control %>
+              </div>
+            </div>
+            <p> <%= advice.description%> </p>
+            <h4> Potential Causes: </h4>
+            <ul class="potential">
+              <% advice.potential_causes.each do |potential_cause| %>
+                <li> <%= potential_cause.point%> </li>
+              <% end %>
+            </ul>
+          </div>
+          <div class="right-sec">
+            <div class="img-sec">
+              <div class="contant">
+                <h6><%= advice.your_home%></h6>
+                <p class="name"> <%= advice.measured %></p>
+                <p>Acceptable Range</p>
+                <p><%= advice.acceptable_range %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+
+</script>
+<script>
+  "use strict";
+  function GaugeChart_SetPercent(el, _perc) {
+    el.dataset.percent = _perc;
+    //.innerHtml = _perc + "%";
+    console.log(el.querySelector(".text"));
+  }
+  function GaugeChart_BehaviorInit() {
+    document.querySelectorAll(".gauge-box").forEach(function (el, index) {
+      GaugeChart_Animate(el);
+      return;
+    });
+  }
+  function GaugeChart_Animate(el) {
+    var pointer = el.querySelector(".pointer");
+    //var percent_text = el.querySelector(".text");
+    if (!pointer)
+    return;
+    /*if (!percent_text)
+                return;*/
+    console.log("OK");
+    var percent_deg = 1.8;
+    if (el.dataset.percent) {
+      var _perc = parseInt(el.dataset.percent);
+      var _percFrom = 0;
+      var percent_deg_style = _perc * percent_deg - 90;
+      if (percent_deg_style < -90)
+      percent_deg_style = -90;
+      if (percent_deg_style > 90)
+      percent_deg_style = 90;
+      pointer.style.transform = "rotateZ(-90deg)";
+      var indicator_index;
+      for (var i = 0; i < 7; i++) {
+        var piece_percent = 100 / 8;
+        if (CheckBetween(_perc, piece_percent * i, piece_percent * (i + 1))) {
+          indicator_index = i + 1;
+          console.log(indicator_index + 1);
+          break;
+        }
+      }
+      var piece_sel = el.querySelector(".p-" + indicator_index);
+      if (piece_sel) {
+        //piece_sel.style.opacity = "1";
+        piece_sel.classList.add("selected");
+      }
+      setInterval(function () {
+        pointer.style.transform = "rotateZ(" + percent_deg_style + "deg)";
+        if (_perc >= 87.5) {
+          el.querySelector(".flame-gauge").classList.add("active");
+        } else
+        {
+          el.querySelector(".flame-gauge").classList.remove("active");
+        }
+      }, 100);
+    }
+  }
+  function CheckBetween(num, min, max) {
+    if (num >= min && num < max) {
+      return true;
+    }
+    return false;
+  }
+  GaugeChart_BehaviorInit();
+</script>
+
+

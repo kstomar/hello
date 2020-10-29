@@ -1,0 +1,91 @@
+<%= wicked_pdf_stylesheet_link_tag 'application'%>
+<div class="res">
+  <div class="header">
+    <div class="container">
+      <div class="logo-sec">
+        <a href="#" class="res-logo">resideo</a>
+        <a href="#" class="logo-img"><%= wicked_pdf_image_tag (asset_url("logo1.png"))%></a>
+      </div>
+      <div class="header-mid">
+        <div class="address-sec">
+          <p>Monitor:34150</p>
+          <p>
+            Report:482066
+          </p>
+          <p>10/14/2010:30amCentralTime(US&Canada)</p>
+        </div>
+        <div class="center-head">
+          <h2>
+            The AirCycle in Your Home
+          </h2>
+        </div>
+      </div>
+      <div class="header-botm">
+        <h2 class="botm-head">What to care about</h2>
+        <div class="botm-logo">
+          <%= wicked_pdf_image_tag (asset_url("air-advice.jpg"))%>
+        </div>
+      </div>
+      <div class="header-botm">
+        <table>
+          <tr>
+            <th class="measured">What we measured</th>
+            <th>Control</th>
+            <th>Your Home</th>
+            <th>Acceptable Range</th>
+          </tr>
+
+          <% @advices.each do |advice|%>
+            <tr>
+              <td class="measured"><%= advice.measured %></td>
+              <td class="<%= advice.control%>"><span><%= wicked_pdf_image_tag (asset_url("#{advice.control}.png"))%></span> <%= advice.control %></td>
+              <td><%= advice.your_home %></td>
+              <td><%= advice.acceptable_range %></td>
+            </tr>
+          <% end %>
+        </table>
+        <h2 class="matt">Why it matters
+        </h2>
+      </div>
+      <% @advices.each do |advice|%>
+        <div class="info-sec">
+          <div class="left-sec">
+            <div class="left-sec-head">
+              <h2><%= advice.measured %></h2>
+              <div class="<%= advice.control%>">
+                <span>
+                  <%= wicked_pdf_image_tag (asset_url("#{advice.control}.png"))%>
+                </span>
+                <%= advice.control %>
+              </div>
+            </div>
+            <p> <%= advice.description%> </p>
+            <h4> Potential Causes: </h4>
+            <ul class="potential">
+              <% advice.potential_causes.each do |potential_cause| %>
+                <li> <%= potential_cause.point%> </li>
+              <% end %>
+            </ul>
+          </div>
+          <div class="right-sec">
+            <div class="img-sec">
+              <div class="contant">
+                <h6><%= advice.your_home%></h6>
+                <p class="name"> <%= advice.measured %></p>
+                <p>Acceptable Range</p>
+                <p><%= advice.acceptable_range %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+
+</script>
